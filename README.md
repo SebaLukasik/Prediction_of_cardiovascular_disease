@@ -1,6 +1,48 @@
-# Prediction_of_cardiovascular_disease
-Prediction of Cardiovascular Disease Risk Based on Clinical Data Using Machine Learning Algorithms.
+# Analiza Ryzyka Chorób Układu Krążenia – Projekt Badawczy
 
-This thesis addresses the application of machine learning (ML) algorithms in predicting the risk of cardiovascular diseases (CVD), which constitute one of the leading causes of death worldwide. The primary objective of the study was to develop and compare the effectiveness of classification models for binary disease risk assessment based on clinical data.
-The research was conducted using the "Cardiovascular Disease dataset," comprising 70,000 patient records. The research process included a detailed Exploratory Data Analysis (EDA), a data preprocessing stage (involving, among other techniques, standardization and dimensionality reduction using PCA), followed by the training of four models: Logistic Regression, Random Forest, Support Vector Machine (SVM), and the XGBoost algorithm. The performance of these models was evaluated based on metrics such as Accuracy, Precision, Recall (Sensitivity), and the Area Under the ROC Curve (AUC). Additionally, an analysis of feature importance and model interpretability was performed using the SHAP method.
-The analysis results demonstrated that the XGBoost model achieved the highest predictive capability (AUC = 0.79 and Accuracy = 0.72 on the test set), outperforming the classical Logistic Regression. The most significant risk factors proved to be systolic blood pressure, age, and cholesterol levels. Cross-validation confirmed the stability of the model and the absence of overfitting. The obtained results indicate that advanced machine learning techniques can serve as an effective tool to support medical personnel in the early detection and stratification of cardiovascular risk.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![ML](https://img.shields.io/badge/Machine%20Learning-XGBoost-orange.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+
+## Opis projektu
+Projekt został zrealizowany w ramach **pracy inżynierskiej**. Skupia się na wykorzystaniu zaawansowanych technik uczenia maszynowego do predykcji wystąpienia chorób sercowo-naczyniowych na podstawie danych medycznych (np. ciśnienie krwi, cholesterol, wiek, wzrost).
+
+Głównym atutem projektu jest nie tylko wysoka skuteczność modelu, ale także jego **interpretowalność** dzięki zastosowaniu metod **Explainable AI (XAI)**.
+
+---
+
+## Stack Technologiczny
+* **Język:** Python
+* **Analiza danych:** `Pandas`, `NumPy`
+* **Wizualizacja:** `Seaborn`, `Matplotlib`
+* **Statystyka:** `SciPy`, `Statsmodels` (testy chi-kwadrat, korelacja Persona)
+* **ML & XAI:** `XGBoost`, `SHAP`, `Scikit-learn`
+
+---
+
+## Kluczowe Etapy Analizy
+
+### 1. Czyszczenie i przygotowanie danych
+* **Konwersja jednostek:** Wiek przeliczony z dni na lata dla lepszej czytelności.
+* **Feature Engineering:** Obliczenie wskaźnika **BMI**.
+* **Usuwanie błędów:** Eliminacja rekordów z błędnie wpisanym ciśnieniem (np. `ap_hi` < `ap_lo`).
+* **Filtracja Outlierów:** Zastosowanie metod statystycznych do usunięcia wartości skrajnych dla wzrostu i wagi.
+
+### 2. Eksploracyjna Analiza Danych (EDA)
+* Badanie rozkładów cech ilościowych.
+* Analiza istotności statystycznej cech jakościowych za pomocą **testu Chi-kwadrat**.
+* Wizualizacja korelacji parametrów medycznych z występowaniem chorób.
+
+### 3. Modelowanie i Wyjaśnialność (XAI)
+Zastosowano model **XGBoost**, który został poddany analizie za pomocą wartości **SHAP** (Shapley Additive Explanations). Dzięki temu wiemy, że:
+* **Najważniejsze czynniki:** Największy wpływ na ryzyko chorób ma **ciśnienie skurczowe**, **wiek** oraz **poziom glukozy**.
+* **Zgodność kliniczna:** Wyniki modelu pokrywają się z aktualną wiedzą medyczną, co potwierdza jego wiarygodność.
+
+---
+
+## Struktura plików
+* `inzynierka (2).ipynb` – Główny plik z kodem, analizą i modelem.
+* `cardio_train.csv` – Zbiór danych wejściowych.
+* `dane_z_wiekiem_w_latach.csv` – Przetworzony zestaw danych.
+
+---
